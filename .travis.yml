@@ -5,6 +5,10 @@ env:
   - PATH=${HOME}/bin:${PATH}
   matrix:
     secure: XNNNby3lBMJUohpb2hSL56pcdGKIisvymvw6Ro7IOATvCYB0fmk+EXMMsW3gxqWZlA0M1HAMa4C9ySH24s07TxX+qB1ThKjXpDjYUpIUn3tHK6Frf9LMWiKE8PXC3yWyZEaRj/FvETLs7C+Do604c5IDbd6P7C5NqlZfz9CEOyJR8mv3jCeBIAQVxERGFGc7fU10sNpJqligXuYO08e47VgcKP8oztZGIjh+PzmP+8JbtgIS4/VUEs+4PEp5yMfjr/X5sDawubtE1wiXnh4MseE+yVEjYgcc8jhnVcF7wmr8pxTY6uEVXpLRveqLrPyA3t5yRXgCJegaadpUDw6ijbDko5b7rHcNNPW/Ray3yDmVvun2NhJ0yt3Iy0TaL6+FGNV9ABkKahQj2gP0OIPqh0Wog2RydtKAaabPIRcnNeJj2xnjFFMfvSkd1Vg53cfA5JC8CylIC1okJDHCzcEWX6Wf823PFIE4ks5tuHM2pedvs5PdHqov26QeT8jo3NuAzmikvHtxeN8PmcjUXue4EAObkk6+UY0PP0n9DWuGo9PZtL6O+ZtQPlUZBYiJgxYNdsZ34BYpZOst4CmT5t31yFCS1TalI057MPfoJ56ag5aHt3lXhpektWZbk2HrKlEVKEaHdr749RJxJfXxHdVUxYwfE70v864Sj1bAFy44eJI=
+addons:
+  apt:
+    packages:
+    - pandoc
 install:
 - curl -LO https://github.com/gohugoio/hugo/releases/download/v0.49.2/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
 - tar -xzvf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
