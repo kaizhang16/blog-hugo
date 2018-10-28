@@ -1,4 +1,7 @@
-baseURL = "http://example.org/"
+baseURL = "https://kaizhang91.github.io/blog/"
 languageCode = "zh-Hans"
 title = "张凯的博客"
 theme = "hugo-mdc"
+
+[params]
+    repoURL = "https://github.com/kaizhang91/blog"
