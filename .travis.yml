@@ -1,10 +1,10 @@
 language: generic
 env:
   global:
-    - HUGO_VERSION=0.49.2
-    - PATH=${HOME}/bin:${PATH}
+  - HUGO_VERSION=0.49.2
+  - PATH=${HOME}/bin:${PATH}
   matrix:
-    secure: qH2V+IFmCXenxtZxNdFBnNGnSIT84i910VUcyIGFTmWlbSfVsU6T0nMehpdXCEu+TvypaxCSNqKdK8Igt6ibKQEJJrnKFvSU3B0I5gErnPWyDaOIO8JNB1vBVYGd79v8Kw1indM4jMfITn9bHf1db+iEdxYWDRnimozg0JiX5G3FnPHascJCbAF6w1ANWzZfy+fSSZcgGk+Zqu5YO58jHEsyr0Q2ekyGfquRmaDigzWo8v2ZIs/7TRO3WWPxTzJDeXe67F/rpa2yt2QSn4PCVa1JrlBdrbEts0gLM7yWWRXUvNiuFGqRNb/tKvB1eaulTUVOCMZdEbiDHeT/rsXp8Qj/VfMK/RFay6me2xzt2JegJuNQHaBcVoh/EWLzg/BDWs91oFfH/RMGpjUvDBQ6GB5Js7yBlbV51lWtxBDzxEpzmhRYRwT6B8elXfXh52pYT+4jJvDDdYBeZ2QsRyw/PvhVXGlNZ5bURUz4hqv0c1HRJEHsfVXptl6WBBG3oCROclga4v30WYuYXyzhJNEPTDTUdtMiw3rBndAFv9oXkDtR93Y/INstXZltJeasFqVp7m1E4uEMbr5p06Xr2wD/KbLw9d1rW2aQTnARzWJJdrKpWjvvCDMaCfbDci1QvolIyJEIaruzrZ5QcOWc+Gd73suZb+y+rQtvCFHB5c0a3IA=
+    secure: XNNNby3lBMJUohpb2hSL56pcdGKIisvymvw6Ro7IOATvCYB0fmk+EXMMsW3gxqWZlA0M1HAMa4C9ySH24s07TxX+qB1ThKjXpDjYUpIUn3tHK6Frf9LMWiKE8PXC3yWyZEaRj/FvETLs7C+Do604c5IDbd6P7C5NqlZfz9CEOyJR8mv3jCeBIAQVxERGFGc7fU10sNpJqligXuYO08e47VgcKP8oztZGIjh+PzmP+8JbtgIS4/VUEs+4PEp5yMfjr/X5sDawubtE1wiXnh4MseE+yVEjYgcc8jhnVcF7wmr8pxTY6uEVXpLRveqLrPyA3t5yRXgCJegaadpUDw6ijbDko5b7rHcNNPW/Ray3yDmVvun2NhJ0yt3Iy0TaL6+FGNV9ABkKahQj2gP0OIPqh0Wog2RydtKAaabPIRcnNeJj2xnjFFMfvSkd1Vg53cfA5JC8CylIC1okJDHCzcEWX6Wf823PFIE4ks5tuHM2pedvs5PdHqov26QeT8jo3NuAzmikvHtxeN8PmcjUXue4EAObkk6+UY0PP0n9DWuGo9PZtL6O+ZtQPlUZBYiJgxYNdsZ34BYpZOst4CmT5t31yFCS1TalI057MPfoJ56ag5aHt3lXhpektWZbk2HrKlEVKEaHdr749RJxJfXxHdVUxYwfE70v864Sj1bAFy44eJI=
 install:
 - curl -LO https://github.com/gohugoio/hugo/releases/download/v0.49.2/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
 - tar -xzvf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
@@ -15,6 +15,6 @@ deploy:
   provider: pages
   local-dir: public
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN
+  github-token: "$GITHUB_TOKEN"
   on:
     branch: master
