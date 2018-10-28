@@ -1,6 +1,7 @@
 ---
 title: "Arch Linux"
 date: 2018-10-28T16:05:48+08:00
+markup: "pandoc"
 description: "安装配置 Arch Linux 的笔记。"
 ---
 

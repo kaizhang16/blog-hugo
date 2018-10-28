@@ -1,6 +1,7 @@
 ---
 title: "TeX"
 date: 2018-10-28T16:04:32+08:00
+markup: "pandoc"
 description: "TeX 的使用笔记。"
 ---
 

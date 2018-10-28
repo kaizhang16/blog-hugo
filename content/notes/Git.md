@@ -1,6 +1,7 @@
 ---
 title: "Git"
 date: 2018-10-28T22:12:11+08:00
+markup: "pandoc"
 ---
 
 ## Submodule
