@@ -1,13 +1,16 @@
 language: generic
-addons:
-  apt:
-    packages:
-    - hugo
-script:
-- hugo
 env:
+  global:
+    - HUGO_VERSION=0.49.2
+    - PATH=${HOME}/bin:${PATH}
   matrix:
     secure: qH2V+IFmCXenxtZxNdFBnNGnSIT84i910VUcyIGFTmWlbSfVsU6T0nMehpdXCEu+TvypaxCSNqKdK8Igt6ibKQEJJrnKFvSU3B0I5gErnPWyDaOIO8JNB1vBVYGd79v8Kw1indM4jMfITn9bHf1db+iEdxYWDRnimozg0JiX5G3FnPHascJCbAF6w1ANWzZfy+fSSZcgGk+Zqu5YO58jHEsyr0Q2ekyGfquRmaDigzWo8v2ZIs/7TRO3WWPxTzJDeXe67F/rpa2yt2QSn4PCVa1JrlBdrbEts0gLM7yWWRXUvNiuFGqRNb/tKvB1eaulTUVOCMZdEbiDHeT/rsXp8Qj/VfMK/RFay6me2xzt2JegJuNQHaBcVoh/EWLzg/BDWs91oFfH/RMGpjUvDBQ6GB5Js7yBlbV51lWtxBDzxEpzmhRYRwT6B8elXfXh52pYT+4jJvDDdYBeZ2QsRyw/PvhVXGlNZ5bURUz4hqv0c1HRJEHsfVXptl6WBBG3oCROclga4v30WYuYXyzhJNEPTDTUdtMiw3rBndAFv9oXkDtR93Y/INstXZltJeasFqVp7m1E4uEMbr5p06Xr2wD/KbLw9d1rW2aQTnARzWJJdrKpWjvvCDMaCfbDci1QvolIyJEIaruzrZ5QcOWc+Gd73suZb+y+rQtvCFHB5c0a3IA=
+install:
+- curl -LO https://github.com/gohugoio/hugo/releases/download/v0.49.2/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+- tar -xzvf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+- mv -f hugo ${HOME}/bin
+script:
+- make build
 deploy:
   provider: pages
   local-dir: public
