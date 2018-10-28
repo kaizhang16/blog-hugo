@@ -1,7 +1,8 @@
 ---
-title: "Setup Arch Linux"
-date: 2018-10-27T16:30:27+08:00
+title: "Arch Linux"
+date: 2018-10-28T16:05:48+08:00
 draft: true
+description: "安装配置 Arch Linux 的笔记。"
 ---
 
 ## 安装
@@ -47,9 +48,9 @@ pacman -S base-devel deepin-screenshot dmenu emacs
 pacman -S fcitx fcitx-cloudpinyin fcitx-googlepinyin
 pacman -S fcitx-im  # 选择全部
 pacman -S fd feh fish fzf
-pacman -S git go gopass mplayer pavucontrol net-tools
+pacman -S git go gopass hugo mplayer pavucontrol net-tools
 pacman -S openssh parcellite python stack sudo
-pacman -S ranger ripgrep rust rxvt-unicode tmux trayer
+pacman -S ranger ripgrep rust rxvt-unicode tmux trayer tree
 pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
 pacman -S variety tcpdump vim w3m wqy-microhei wqy-zenhei
 pacman -S xclip xmobar xmonad xorg-server xorg-xinit
@@ -142,3 +143,4 @@ sudo pacman -S goldendict
 yarn config set registry https://registry.npm.taobao.org --global
 yarn global add elm
 ```
+

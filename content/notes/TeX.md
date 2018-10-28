@@ -1,0 +1,91 @@
+---
+title: "TeX"
+date: 2018-10-28T16:04:32+08:00
+draft: true
+description: "TeX 的使用笔记。"
+---
+
+## 数学
+
+| 数学符号            | 含义     | $\TeX$ 表示         |
+|---------------------|----------|---------------------|
+| $a$                 | 标量     | a                   |
+| $\bm{a}$            | 向量     | \\bm{a}             |
+| $\bm{A}$            | 矩阵     | \\bm{A}             |
+| $\bm{A}^\mathsf{T}$ | 矩阵转置 | \\bm{A}^\\mathsf{T} |
+| $\textrm{a}$        | 随机变量 | \\textrm{a}         |
+| $\mathbb{A}$        | 集合     | \\mathbb{A}         |
+| $\mathbb{E}$        | 期望     | \\mathbb{E}         |
+| $\mathcal{N}$       | 高斯分布 | \\mathcal{N}        |
+
+: 数学字体 {#tbl:mathFonts}
+
+| 数学符号            | 含义                      | $\TeX$ 表示         |
+|---------------------|---------------------------|---------------------|
+| $\ge$               | 大于等于                  | \\ge                |
+| $\in$               | 属于                      | \\in                |
+| $\textrm{a} \sim P$ | 随机变量 a 的概率分布为 P | \\textrm{a} \\sim P |
+| $\times$            | 乘                        | \\times             |
+| $\frac{x}{y}$       | 除                        | \\frac{x}{y}        |
+| $\odot$             | 矩阵按元素相乘            | \\odot              |
+
+: 二元关系符 {#tbl:binaryRelationSymbols}
+
+| 数学符号 | 含义 | $\TeX$ |
+|----------|------|--------|
+| $\prod$  | 求积 | \\prod |
+| $\sum$   | 求和 | \\sum  |
+
+: 巨算符 {#tbl:bigOperators}
+
+| 数学符号      | 含义     | $\TeX$       |
+|---------------|----------|--------------|
+| $\Rightarrow$ | 推导出   | \\Rightarrow |
+| $\to$         | 向右箭头 | \\to         |
+
+: 箭头 {#tbl:arrows}
+
+| 字母     | $\TeX$  |
+|----------|---------|
+| $\alpha$ | \\alpha |
+| $\beta$  | \\beta  |
+| $\kappa$ | \\kappa |
+| $\mu$    | \\mu    |
+| $\phi$   | \\phi   |
+| $\pi$    | \\pi    |
+| $\sigma$ | \\sigma |
+| $\Sigma$ | \\Sigma |
+| $\theta$ | \\theta |
+| $\zeta$  | \\zeta  |
+
+: 希腊字母 {#tbl:greekLetters}
+
+| 函数          | $\TeX$       |
+|---------------|--------------|
+| $\arg$        | \\arg        |
+| $\cos$        | \\cos        |
+| $\det$        | \\det        |
+| $\exp$        | \\exp        |
+| $\log$        | \\log        |
+| $\max$        | \\max        |
+| $\sqrt{x}$    | \\sqrt{x}    |
+| $\tanh$       | \\tanh       |
+
+: 函数 {#tbl:functions}
+
+| 数学符号                                | 含义                               | $\TeX$                           |
+|-----------------------------------------|------------------------------------|----------------------------------|
+| $\forall$                               | 任意                               | \\forall                         |
+| $\infty$                                | 无穷                               | \\infty                          |
+| $\left(\frac{x}{y}\right)$              | 定界符                             | \\left(\\frac{x}{y}\\right)      |
+| $\lVert$                                | 左范数定界符                       | \\lVert                          |
+| $\rVert$                                | 右范数定界符                       | \\rVert                          |
+| $P(\textrm{a} \mid \textrm{b})$         | 条件概率                           | P(\\textrm{a} \\mid \\textrm{b}) |
+| $\mathbb{E}_{\textrm{x} \sim P} [f(x)]$ | $f(x)$ 关于 $P(\textrm{x})$ 的期望 |                                  |
+| $\partial$                              | 偏导数                             | \\partial                        |
+| $\ast$                                  | 星号                               | \\ast                            |
+| $\nabla$                                | 梯度                               | \\nabla                          |
+
+: 其他 {#tbl:otherSymbols}
+
+## 参考文献
