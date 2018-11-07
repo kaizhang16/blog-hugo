@@ -90,6 +90,13 @@ makepkg -si
 yay google-chrome
 ```
 
+### fish
+
+```
+yay fisher  # fish plugin manager
+fisher add jethrokuan/z  # 安装 z
+```
+
 ### zsh
 
 ```
