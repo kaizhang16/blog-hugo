@@ -90,6 +90,21 @@ makepkg -si
 yay google-chrome
 ```
 
+### fish
+
+```
+yay fisher  # fish plugin manager
+fisher add jethrokuan/z  # 安装 z
+```
+
+### neovim
+
+```
+sudo pacman -S neovim python-neovim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 ### zsh
 
 ```
