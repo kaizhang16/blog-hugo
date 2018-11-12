@@ -37,26 +37,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ## 基础
 
-### 工具
-
-```
-systemctl start dhcpcd
-systemctl enable dhcpcd
-pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
-pacman -S adobe-source-code-pro-fonts
-pacman -S base-devel deepin-screenshot dmenu emacs
-pacman -S fcitx fcitx-cloudpinyin fcitx-googlepinyin
-pacman -S fcitx-im  # 选择全部
-pacman -S fd feh fish fzf
-pacman -S git go gopass hugo mplayer pavucontrol net-tools
-pacman -S openssh parcellite python stack sudo
-pacman -S ranger ripgrep rust rxvt-unicode tmux trayer tree
-pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
-pacman -S variety tcpdump vim w3m wqy-microhei wqy-zenhei
-pacman -S xclip xmobar xmonad xorg-server xorg-xinit
-pacman -S xsel yarn z zsh
-```
-
 ### 用户
 
 ```
@@ -76,6 +56,12 @@ sudo systemctl start vboxservice
 sudo systemctl enable vboxservice
 ```
 
+### X11
+
+```
+sudo pacman -S alacritty fzf tmux tmuxp trayer xcompmgr transset-df
+```
+
 ### yay
 
 ```
@@ -93,6 +79,7 @@ yay google-chrome
 ### fish
 
 ```
+sudo pacman -S fish
 yay fisher  # fish plugin manager
 fisher add jethrokuan/z  # 安装 z
 ```
@@ -112,6 +99,35 @@ git clone https://github.com/Tarrasch/antigen-hs.git ~/.zsh/antigen-hs/
 # 修改 stack.yaml 里的 resolver 版本
 zsh  # Yes, Yes ...
 # 更新 MyAntigen.hs 后，请 antigen-hs-setup
+```
+
+### 其他
+
+```
+systemctl start dhcpcd
+systemctl enable dhcpcd
+pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
+pacman -S adobe-source-code-pro-fonts
+pacman -S base-devel deepin-screenshot dmenu emacs
+pacman -S fcitx fcitx-cloudpinyin fcitx-googlepinyin
+pacman -S fcitx-im  # 选择全部
+pacman -S fd feh
+pacman -S git go gopass hugo mplayer pavucontrol net-tools
+pacman -S openssh parcellite python stack sudo
+pacman -S ranger ripgrep rust rxvt-unicode tree
+pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
+pacman -S variety tcpdump vim w3m wqy-microhei wqy-zenhei
+pacman -S xclip xmobar xmonad xorg-server xorg-xinit
+pacman -S xsel yarn z zsh
+```
+
+## 编程语言
+
+### Rust
+
+```
+sudo pacman -S rustup
+rustup install stable
 ```
 
 ## 配置
