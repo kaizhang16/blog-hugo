@@ -43,8 +43,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd --create-home kai
 passwd kai
 gpasswd -a kai wheel
+pacman -S fish vim
 visudo  # 让 wheel 拥有 sudo 权限
-chsh -s /usr/bin/zsh kai
+chsh -s /usr/bin/fish kai
 ```
 
 ### Virtual Box
@@ -67,14 +68,20 @@ makepkg -si
 ### X11
 
 ```
-sudo pacman -S alacritty fzf tmux tmuxp trayer xcompmgr transset-df
+sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
+sudo pacman -S adobe-source-code-pro-fonts
+sudo pacman -S alacritty dmenu feh fzf
+sudo pacman -S parcellite ranger
+sudo pacman -S tmux tmuxp trayer transset-df
+sudo pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
+sudo pacman -S variety w3m wqy-microhei wqy-zenhei
+sudo pacman -S xclip xcompmgr xmobar xmonad xorg-server xorg-xinit xsel
 yay i3lock-next
 ```
 
 ### fish
 
 ```
-sudo pacman -S fish
 yay fisher  # fish plugin manager
 fisher add jethrokuan/z  # 安装 z
 ```
@@ -87,19 +94,48 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+### dotfiles
+
+```
+sudo pacman -S rustup
+rustup install stable
+rustup component add rust-src
+rustup component add rustfmt-preview
+
+mkdir ~/projects && cd ~/projects
+git clone https://github.com/kaizhang91/dotfiles.git
+cd dotfiles/
+cargo build --release
+./target/release/dotfiles templates/
+```
+
 ### zsh
 
 ```
+sudo pacman -S z zsh
 git clone https://github.com/Tarrasch/antigen-hs.git ~/.zsh/antigen-hs/
 # 修改 stack.yaml 里的 resolver 版本
 zsh  # Yes, Yes ...
 # 更新 MyAntigen.hs 后，请 antigen-hs-setup
 ```
 
-### zeal
+### 输入法
+
+```
+sudo pacman -S fcitx fcitx-cloudpinyin fcitx-googlepinyin
+sudo pacman -S fcitx-im  # 选择全部
+```
+
+### 文档
 
 ```
 sudo pacman -S zeal
+```
+
+### 翻译
+
+```
+sudo pacman -S goldendict
 ```
 
 ### 下载
@@ -107,12 +143,6 @@ sudo pacman -S zeal
 ```
 sudo pacman -S uget
 yay uget-integrator uget-integrator-firefox
-```
-
-### 翻译
-
-```
-sudo pacman -S goldendict
 ```
 
 ### 排版
@@ -124,33 +154,16 @@ sudo pacman -S texlive-most
 sudo pacman -S texlive-lang
 ```
 
-### Rust
-
-```
-sudo pacman -S rustup
-rustup install stable
-rustup component add rust-src
-rustup component add rustfmt-preview
-```
-
 ### 其他
 
 ```
 systemctl start dhcpcd
 systemctl enable dhcpcd
-pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
-pacman -S adobe-source-code-pro-fonts
-pacman -S base-devel deepin-screenshot dmenu emacs
-pacman -S fcitx fcitx-cloudpinyin fcitx-googlepinyin
-pacman -S fcitx-im  # 选择全部
-pacman -S fd feh
-pacman -S git go gopass hugo mplayer pavucontrol net-tools
-pacman -S openssh parcellite python stack sudo
-pacman -S ranger ripgrep rust rxvt-unicode tree
-pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
-pacman -S variety tcpdump vim w3m wqy-microhei wqy-zenhei
-pacman -S xclip xmobar xmonad xorg-server xorg-xinit
-pacman -S xsel yarn z zsh
+pacman -S base-devel bat deepin-screenshot emacs
+pacman -S fd git go gopass hugo mplayer net-tools
+pacman -S openssh pavucontrol python stack sudo
+pacman -S ripgrep rxvt-unicode tree
+pacman -S tcpdump yarn
 yay google-chrome
 ```
 
