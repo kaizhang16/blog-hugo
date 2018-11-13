@@ -56,12 +56,6 @@ sudo systemctl start vboxservice
 sudo systemctl enable vboxservice
 ```
 
-### X11
-
-```
-sudo pacman -S alacritty fzf tmux tmuxp trayer xcompmgr transset-df
-```
-
 ### yay
 
 ```
@@ -70,10 +64,11 @@ cd yay
 makepkg -si
 ```
 
-### 常用 AUR 软件
+### X11
 
 ```
-yay google-chrome
+sudo pacman -S alacritty fzf tmux tmuxp trayer xcompmgr transset-df
+yay i3lock-next
 ```
 
 ### fish
@@ -87,7 +82,7 @@ fisher add jethrokuan/z  # 安装 z
 ### neovim
 
 ```
-sudo pacman -S neovim python-neovim
+sudo pacman -S neovim python-neovim rust-racer
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
@@ -99,6 +94,43 @@ git clone https://github.com/Tarrasch/antigen-hs.git ~/.zsh/antigen-hs/
 # 修改 stack.yaml 里的 resolver 版本
 zsh  # Yes, Yes ...
 # 更新 MyAntigen.hs 后，请 antigen-hs-setup
+```
+
+### zeal
+
+```
+sudo pacman -S zeal
+```
+
+### 下载
+
+```
+sudo pacman -S uget
+yay uget-integrator uget-integrator-firefox
+```
+
+### 翻译
+
+```
+sudo pacman -S goldendict
+```
+
+### 排版
+
+```
+sudo pacman -S graphviz
+sudo pacman -S pandoc-citeproc pandoc-crossref
+sudo pacman -S texlive-most
+sudo pacman -S texlive-lang
+```
+
+### Rust
+
+```
+sudo pacman -S rustup
+rustup install stable
+rustup component add rust-src
+rustup component add rustfmt-preview
 ```
 
 ### 其他
@@ -119,15 +151,7 @@ pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
 pacman -S variety tcpdump vim w3m wqy-microhei wqy-zenhei
 pacman -S xclip xmobar xmonad xorg-server xorg-xinit
 pacman -S xsel yarn z zsh
-```
-
-## 编程语言
-
-### Rust
-
-```
-sudo pacman -S rustup
-rustup install stable
+yay google-chrome
 ```
 
 ## 配置
@@ -148,30 +172,9 @@ stack install intero
 sudo pacman -S flake8 yapf
 ```
 
-### Pandoc
-
-```
-sudo pacman -S graphviz
-sudo pacman -S pandoc-citeproc pandoc-crossref
-sudo pacman -S texlive-most
-sudo pacman -S texlive-lang
-```
-
-### Haskell
-
-```
-sudo pacman -S haskell-hakyll
-```
-
-```
-sudo pacman -S uget
-sudo pacman -S goldendict
-```
-
 ### 前端
 
 ```
 yarn config set registry https://registry.npm.taobao.org --global
 yarn global add elm
 ```
-
