@@ -167,7 +167,13 @@ pacman -S tcpdump yarn
 yay google-chrome
 ```
 
-## 配置
+## 编程语言
+
+### c/c++
+
+```
+sudo pacman -S clang cmake
+```
 
 ### Spacemacs
 
