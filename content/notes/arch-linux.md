@@ -89,7 +89,7 @@ fisher add jethrokuan/z  # 安装 z
 ### neovim
 
 ```
-sudo pacman -S neovim python-neovim rust-racer
+sudo pacman -S neovim python-neovim python2-vim rust-racer vim-jedi
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
