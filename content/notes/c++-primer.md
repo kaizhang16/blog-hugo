@@ -28,3 +28,9 @@ markup: "pandoc"
 ### Strings, Vectors and Arrays
 
 `it->mem` 等价于 `(*it).mem`。
+
+### Expressions
+
+- `C` 里，`lvalue` 可以放在赋值表达式的左侧，`rvalue` 不行；
+- `C++` 里，`lvalue` 是对象自己（内存里的位置）；`rvalue` 指对象的值；
+- 可以用 `lvalue` 替代 `rvalue`；反之不行。
