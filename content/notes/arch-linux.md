@@ -89,7 +89,8 @@ fisher add jethrokuan/z  # 安装 z
 ### neovim
 
 ```
-sudo pacman -S neovim python-neovim python2-vim rust-racer vim-jedi
+sudo pacman -S neovim python-isort python-neovim python2-neovim
+sudo pacman -S rust-racer vim-jedi yapf
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
@@ -98,9 +99,9 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 ```
 sudo pacman -S rustup
-rustup install stable
-rustup component add rust-src
-rustup component add rustfmt-preview
+rustup install beta
+rustup default beta
+rustup component add clippy-preview rustfmt-preview rust-src
 
 mkdir ~/projects && cd ~/projects
 git clone https://github.com/kaizhang91/dotfiles.git
@@ -154,6 +155,15 @@ sudo pacman -S texlive-most
 sudo pacman -S texlive-lang
 ```
 
+#### 字体
+
+```
+mkdir -p ~/.local/share/fonts
+cp -i ~/share/fonts/方正苏新诗柳楷简体.ttf ~/.local/share/fonts/
+cp -i ~/share/fonts/方正苏新诗柳楷繁体.ttf ~/.local/share/fonts/
+fc-list | grep -i kai
+```
+
 ### 其他
 
 ```
@@ -175,6 +185,21 @@ yay google-chrome
 sudo pacman -S clang cmake
 ```
 
+### Python
+
+#### Jupyter
+
+```
+sudo pacman -S jupyter-notebook
+sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
+```
+
+#### 数据挖掘
+
+```
+sudo pacman -S python-matplotlib python-pandas
+```
+
 ### Spacemacs
 
 #### Haskell
@@ -183,12 +208,6 @@ sudo pacman -S clang cmake
 sudo pacman -S hlint stylish-haskell hasktags hoogle
 yay haskell-apply-refactor
 stack install intero
-```
-
-#### Python
-
-```
-sudo pacman -S flake8 yapf
 ```
 
 ### 前端
