@@ -185,6 +185,12 @@ yay google-chrome
 sudo pacman -S clang cmake
 ```
 
+### Lua
+
+```
+sudo pacman -S luarocks
+```
+
 ### Python
 
 #### Jupyter
