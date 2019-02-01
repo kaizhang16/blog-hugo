@@ -4,9 +4,15 @@ date: 2018-10-28T22:12:11+08:00
 markup: "pandoc"
 ---
 
-## Submodule
+# 跟踪上游分支
 
-### 删除 submodule
+```
+git branch -u upstream/foo foo
+```
+
+# Submodule
+
+## 删除 submodule
 
 ```
 git submodule deinit -f -- a/submodule
