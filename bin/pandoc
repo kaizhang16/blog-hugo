@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/usr/bin/pandoc --filter=pandoc-crossref --filter=pandoc-citeproc --mathjax
