@@ -100,7 +100,7 @@ curl -sLf https://spacevim.org/install.sh | bash
 sudo pacman -S rustup
 rustup install beta
 rustup default beta
-rustup component add clippy-preview rustfmt-preview rust-src
+rustup component add clippy rustfmt rust-src
 
 mkdir ~/projects && cd ~/projects
 git clone https://github.com/kaizhang91/dotfiles.git
