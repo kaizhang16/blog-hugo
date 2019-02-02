@@ -5,9 +5,9 @@ markup: "pandoc"
 description: "安装配置 Arch Linux 的笔记。"
 ---
 
-## 安装
+# 安装
 
-### 分区
+## 分区
 
 分区方案：
 
@@ -21,13 +21,13 @@ fdisk /dev/sda  # 选 dos 分区表
 mkfs.ext4 /dev/sda1
 ```
 
-### 时区
+## 时区
 
 ```
 ln -sh /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
-### boot
+## boot
 
 ```
 pacman -S grub
@@ -35,9 +35,9 @@ grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## 基础
+# 基础
 
-### 用户
+## 用户
 
 ```
 useradd --create-home kai
@@ -48,7 +48,7 @@ visudo  # 让 wheel 拥有 sudo 权限
 chsh -s /usr/bin/fish kai
 ```
 
-### Virtual Box
+## Virtual Box
 
 ```
 sudo pacman -S virtualbox-guest-utils  # 选择 virtualbox-guest-modules-arch
@@ -57,7 +57,7 @@ sudo systemctl start vboxservice
 sudo systemctl enable vboxservice
 ```
 
-### yay
+## yay
 
 ```
 git clone https://aur.archlinux.org/yay.git
@@ -65,37 +65,36 @@ cd yay
 makepkg -si
 ```
 
-### X11
+## X11
 
 ```
 sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
 sudo pacman -S adobe-source-code-pro-fonts
 sudo pacman -S alacritty dmenu feh fzf
+sudo pacman -S i3-gaps i3status
 sudo pacman -S parcellite ranger
 sudo pacman -S tmux tmuxp trayer transset-df
 sudo pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
 sudo pacman -S variety w3m wqy-microhei wqy-zenhei
 sudo pacman -S xclip xcompmgr xmobar xmonad xorg-server xorg-xinit xsel
-yay i3lock-next
+yay i3lock-next i3status-rust
 ```
 
-### fish
+## fish
 
 ```
 yay fisher  # fish plugin manager
 fisher add jethrokuan/z  # 安装 z
 ```
 
-### neovim
+## SpaceVim
 
 ```
-sudo pacman -S neovim python-isort python-neovim python2-neovim
-sudo pacman -S rust-racer vim-jedi yapf
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sudo pacman -S neovim python-neovim python2-neovim
+curl -sLf https://spacevim.org/install.sh | bash
 ```
 
-### dotfiles
+## dotfiles
 
 ```
 sudo pacman -S rustup
@@ -110,7 +109,7 @@ cargo build --release
 ./target/release/dotfiles templates/
 ```
 
-### zsh
+## zsh
 
 ```
 sudo pacman -S z zsh
@@ -120,33 +119,33 @@ zsh  # Yes, Yes ...
 # 更新 MyAntigen.hs 后，请 antigen-hs-setup
 ```
 
-### 输入法
+## 输入法
 
 ```
 sudo pacman -S fcitx fcitx-cloudpinyin fcitx-googlepinyin
 sudo pacman -S fcitx-im  # 选择全部
 ```
 
-### 文档
+## 文档
 
 ```
 sudo pacman -S zeal
 ```
 
-### 翻译
+## 翻译
 
 ```
 sudo pacman -S goldendict
 ```
 
-### 下载
+## 下载
 
 ```
 sudo pacman -S uget
 yay uget-integrator uget-integrator-firefox
 ```
 
-### 排版
+## 排版
 
 ```
 sudo pacman -S graphviz
@@ -155,7 +154,7 @@ sudo pacman -S texlive-most
 sudo pacman -S texlive-lang
 ```
 
-#### 字体
+### 字体
 
 ```
 mkdir -p ~/.local/share/fonts
@@ -164,7 +163,7 @@ cp -i ~/share/fonts/方正苏新诗柳楷繁体.ttf ~/.local/share/fonts/
 fc-list | grep -i kai
 ```
 
-### 其他
+## 其他
 
 ```
 systemctl start dhcpcd
@@ -177,48 +176,59 @@ pacman -S tcpdump yarn
 yay google-chrome
 ```
 
-## 编程语言
+# 编程语言
 
-### c/c++
+## c/c++
 
 ```
 sudo pacman -S clang cmake
 ```
 
-### Lua
+## Lua
 
 ```
 sudo pacman -S luarocks
 ```
 
-### Python
+## Python
 
-#### Jupyter
+### Jupyter
 
 ```
 sudo pacman -S jupyter-notebook
 sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
 ```
 
-#### 数据挖掘
+### 数据挖掘
 
 ```
 sudo pacman -S python-matplotlib python-pandas
 ```
 
-### Spacemacs
+## 前端
 
-#### Haskell
+```
+yarn config set registry https://registry.npm.taobao.org --global
+yarn global add elm
+```
+
+# 归档
+
+## neovim
+
+```
+sudo pacman -S neovim python-isort python-neovim python2-neovim
+sudo pacman -S rust-racer vim-jedi yapf
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+## Spacemacs
+
+### Haskell
 
 ```
 sudo pacman -S hlint stylish-haskell hasktags hoogle
 yay haskell-apply-refactor
 stack install intero
-```
-
-### 前端
-
-```
-yarn config set registry https://registry.npm.taobao.org --global
-yarn global add elm
 ```
