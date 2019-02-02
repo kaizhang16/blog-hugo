@@ -2,9 +2,9 @@
 
 /usr/bin/pandoc \
   --filter=pandoc-crossref \
-  --metadata=tableTitle:表 \
-  --metadata=tblPrefix:表. \
-  --metadata=figureTitle:图 \
-  --metadata=figPrefix:图. \
+    --metadata=tableTitle:表 \
+    --metadata=tblPrefix:表. \
+    --metadata=figureTitle:图 \
+    --metadata=figPrefix:图. \
   --filter=pandoc-citeproc \
   --mathjax
