@@ -7,16 +7,16 @@ description: "TeX 的使用笔记。"
 
 ## 数学
 
-| 数学符号            | 含义     | $\TeX$ 表示         |
-|---------------------|----------|---------------------|
-| $a$                 | 标量     | a                   |
-| $\bm{a}$            | 向量     | \\bm{a}             |
-| $\bm{A}$            | 矩阵     | \\bm{A}             |
-| $\bm{A}^\mathsf{T}$ | 矩阵转置 | \\bm{A}^\\mathsf{T} |
-| $\textrm{a}$        | 随机变量 | \\textrm{a}         |
-| $\mathbb{A}$        | 集合     | \\mathbb{A}         |
-| $\mathbb{E}$        | 期望     | \\mathbb{E}         |
-| $\mathcal{N}$       | 高斯分布 | \\mathcal{N}        |
+| 数学符号              | 含义       | $\TeX$ 表示           |
+| --------------------- | ---------- | --------------------- |
+| $a$                   | 标量       | a                     |
+| $\bm{a}$              | 向量       | \\bm{a}               |
+| $\bm{A}$              | 矩阵       | \\bm{A}               |
+| $\bm{A}^\mathsf{T}$   | 矩阵转置   | \\bm{A}^\\mathsf{T}   |
+| $\textrm{a}$          | 随机变量   | \\textrm{a}           |
+| $\mathbb{A}$          | 集合       | \\mathbb{A}           |
+| $\mathbb{E}$          | 期望       | \\mathbb{E}           |
+| $\mathcal{N}$         | 高斯分布   | \\mathcal{N}          |
 
 : 数学字体 {#tbl:mathFonts}
 
