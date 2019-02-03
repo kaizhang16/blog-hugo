@@ -2,6 +2,7 @@ baseURL = "https://kaizhang91.github.io/blog/"
 languageCode = "zh-Hans"
 title = "张凯的博客"
 theme = "hugo-mdc"
+disqusShortname = "kai-blog"
 
 [params]
-    repoURL = "https://github.com/kaizhang91/blog"
+  repoURL = "https://github.com/kaizhang91/blog"
