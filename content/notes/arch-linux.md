@@ -15,7 +15,7 @@ description: "安装配置 Arch Linux 的笔记。"
 - `/var`: 15 GB
 - `/home`: 45 GB
 
-```
+```bash
 fdisk /dev/sda  # 选 dos 分区表
 
 mkfs.ext4 /dev/sda1
