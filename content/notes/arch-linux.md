@@ -258,6 +258,12 @@ cargo build --release
 ./target/release/dotfiles templates/
 ```
 
+## Visual Studio Code
+
+```
+sudo pacman -S code
+```
+
 ## fish
 
 ```
@@ -352,7 +358,8 @@ sudo pacman -S python-matplotlib python-pandas
 ## Rust
 
 ```
-rustup component add clippy rustfmt rust-src
+sudo pacman -S rust-racer
+rustup component add clippy rls rustfmt rust-src
 ```
 
 ## 前端
@@ -368,7 +375,7 @@ yarn global add elm
 
 ```
 sudo pacman -S neovim python-isort python-neovim python2-neovim
-sudo pacman -S rust-racer vim-jedi yapf
+sudo pacman -S vim-jedi yapf
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
