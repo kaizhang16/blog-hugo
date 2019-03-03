@@ -178,9 +178,11 @@ HOOKS=(base **udev** ... block **lvm2** filesystems)
 ## DNS
 
 ```
+# pacman -S fish git ntp sudo
 # systemctl enable dhcpcd
 # systemctl start dhcpcd
-# pacman -S fish git sudo
+# systemctl enable ntpd
+# systemctl start ntpd
 ```
 
 ## 用户
@@ -235,7 +237,7 @@ sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
 sudo pacman -S adobe-source-code-pro-fonts
 sudo pacman -S alacritty base-devel bat clang dmenu
 sudo pacman -S fd feh firefox fzf gopass
-sudo pacman -S i3-gaps
+sudo pacman -S i3-gaps net-tools
 sudo pacman -S parcellite powerline-fonts ranger ripgrep
 sudo pacman -S tmux tmuxp transset-df tree
 sudo pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
@@ -268,7 +270,8 @@ sudo pacman -S code
 
 ```
 yay fisher  # fish plugin manager
-fisher add jethrokuan/z  # 安装 z
+fisher add jethrokuan/z
+fisher add jorgebucaran/fish-nvm
 ```
 
 ## 输入法
@@ -301,8 +304,8 @@ sudo pacman -S zeal
 
 ```
 sudo pacman -S graphviz
-sudo pacman -S pandoc-citeproc pandoc-crossref
-sudo pacman -S texlive-most
+sudo pacman -S pandoc pandoc-citeproc pandoc-crossref
+sudo pacman -S python-pandocfilters texlive-most
 sudo pacman -S texlive-lang
 ```
 
@@ -318,11 +321,11 @@ fc-list | grep -i kai
 ## 其他
 
 ```
-pacman -S deepin-screenshot emacs
-pacman -S go hugo mplayer net-tools
+pacman -S bind-tools deepin-screenshot emacs
+pacman -S go htop hugo mplayer net-tools
 pacman -S openssh pavucontrol python stack
 pacman -S rxvt-unicode
-pacman -S tcpdump yarn
+pacman -S tcpdump
 yay google-chrome
 ```
 
@@ -332,6 +335,12 @@ yay google-chrome
 
 ```
 sudo pacman -S cmake
+```
+
+## java
+
+```
+sudo pacman -S maven
 ```
 
 ## Lua
@@ -365,8 +374,8 @@ rustup component add clippy rls rustfmt rust-src
 ## 前端
 
 ```
+sudo pacman -S yarn
 yarn config set registry https://registry.npm.taobao.org --global
-yarn global add elm
 ```
 
 # 归档
