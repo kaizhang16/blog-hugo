@@ -322,7 +322,7 @@ fc-list | grep -i kai
 
 ```
 pacman -S bind-tools deepin-screenshot emacs
-pacman -S go htop hugo mplayer net-tools
+pacman -S go htop hugo mplayer ncdu net-tools
 pacman -S openssh pavucontrol python stack
 pacman -S rxvt-unicode
 pacman -S tcpdump
