@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>首页 on 张凯的博客</title>
+    <link>https://kaizhang91.github.io/blog/</link>
+    <description>Recent content in 首页 on 张凯的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 01 Feb 2019 21:27:17 +0800</lastBuildDate>
+    
+	<atom:link href="https://kaizhang91.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GPG</title>
+      <link>https://kaizhang91.github.io/blog/notes/gpg/</link>
+      <pubDate>Sat, 02 Mar 2019 22:02:39 +0800</pubDate>
+      
+      <guid>https://kaizhang91.github.io/blog/notes/gpg/</guid>
+      <description>基本操作 gpg --list-keys # 列出公钥 gpg --gen-key # 生成新密钥对 gpg --list-secret-keys --keyid-format LONG # 列出私钥 gpg --armor --output ${filename} --export-secret-keys ${私钥 ID} # 导出私钥 gpg --armor --export ${私钥 ID} # 导出公钥 gpg --import ${filename} # 导入私钥  </description>
+    </item>
+    
+    <item>
+      <title>SSH</title>
+      <link>https://kaizhang91.github.io/blog/notes/ssh/</link>
+      <pubDate>Sat, 02 Mar 2019 21:56:46 +0800</pubDate>
+      
+      <guid>https://kaizhang91.github.io/blog/notes/ssh/</guid>
+      <description>生成新的 SSH 密钥对 ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title>Placeholder</title>
+      <link>https://kaizhang91.github.io/blog/posts/placeholder/</link>
+      <pubDate>Fri, 01 Feb 2019 20:51:15 +0800</pubDate>
+      
+      <guid>https://kaizhang91.github.io/blog/posts/placeholder/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://kaizhang91.github.io/blog/notes/git/</link>
+      <pubDate>Sun, 28 Oct 2018 22:12:11 +0800</pubDate>
+      
+      <guid>https://kaizhang91.github.io/blog/notes/git/</guid>
+      <description>跟踪上游分支 git branch -u upstream/foo foo Submodule 删除 submodule git submodule deinit -f -- a/submodule rm -rf .git/modules/a/submodule git rm -f a/submodule  </description>
+    </item>
+    
+    <item>
+      <title>Arch Linux</title>
+      <link>https://kaizhang91.github.io/blog/notes/arch-linux/</link>
+      <pubDate>Sun, 28 Oct 2018 16:05:48 +0800</pubDate>
+      
+      <guid>https://kaizhang91.github.io/blog/notes/arch-linux/</guid>
+      <description>安装 确认 boot 模式 # ls /sys/firmware/efi/efivars 存在时为 UEFI 模式，不存在则为 BIOS 模式。
+确认已联网 # ping archlinux.org 更新系统时钟 # timedatectl set-ntp true 分区 BIOS boot 分区  在 BIOS/GPT 配置下才需要。
+ # gdisk /dev/sda # 选 GPT 分区表 n 回车（使用默认值） +1M ef02 w LVM 分区 创建分区 # gdisk /dev/sda n 回车（使用默认值） 回车（使用默认值） 8e00 w 创建 physical volumes # lvmdiskscan # pvcreate /dev/sda2 # pvdisplay 创建 volume group # vgcreate VolGroup00 /dev/sda2 # vgdisplay 创建 logical volumes # lvcreate -L 30G VolGroup00 -n lvroot # lvcreate -L 20G VolGroup00 -n lvvar # lvcreate -l 100%FREE VolGroup00 -n lvhome # lvdisplay 创建文件系统和挂载 logical volumes mkfs.</description>
+    </item>
+    
+    <item>
+      <title>TeX</title>
+      <link>https://kaizhang91.github.io/blog/notes/tex/</link>
+      <pubDate>Sun, 28 Oct 2018 16:04:32 +0800</pubDate>
+      
+      <guid>https://kaizhang91.github.io/blog/notes/tex/</guid>
+      <description>数学  表 1: 数学字体  数学符号 含义 \(\TeX\) 表示    \(a\) 标量 a  \(\bm{a}\) 向量 \bm{a}  \(\bm{A}\) 矩阵 \bm{A}  \(\bm{A}^\mathsf{T}\) 矩阵转置 \bm{A}^\mathsf{T}  \(\textrm{a}\) 随机变量 \textrm{a}  \(\mathbb{A}\) 集合 \mathbb{A}  \(\mathbb{E}\) 期望 \mathbb{E}  \(\mathcal{N}\) 高斯分布 \mathcal{N}      表 2: 二元关系符  数学符号 含义 \(\TeX\) 表示    \(\ge\) 大于等于 \ge  \(\in\) 属于 \in  \(\textrm{a} \sim P\) 随机变量 a 的概率分布为 P \textrm{a} \sim P  \(\times\) 乘 \times  \(\frac{x}{y}\) 除 \frac{x}{y}  \(\odot\) 矩阵按元素相乘 \odot      表 3: 巨算符  数学符号 含义 \(\TeX\)    \(\prod\) 求积 \prod  \(\sum\) 求和 \sum      表 4: 箭头  数学符号 含义 \(\TeX\)    \(\Rightarrow\) 推导出 \Rightarrow  \(\to\) 向右箭头 \to      表 5: 希腊字母  字母 \(\TeX\)    \(\alpha\) \alpha  \(\beta\) \beta  \(\kappa\) \kappa  \(\mu\) \mu  \(\phi\) \phi  \(\pi\) \pi  \(\sigma\) \sigma  \(\Sigma\) \Sigma  \(\theta\) \theta  \(\zeta\) \zeta      表 6: 函数  函数 \(\TeX\)    \(\arg\) \arg  \(\cos\) \cos  \(\det\) \det  \(\exp\) \exp  \(\log\) \log  \(\max\) \max  \(\sqrt{x}\) \sqrt{x}  \(\tanh\) \tanh      表 7: 其他  数学符号 含义 \(\TeX\)    \(\forall\) 任意 \forall  \(\infty\) 无穷 \infty  \(\left(\frac{x}{y}\right)\) 定界符 \left(\frac{x}{y}\right)  \(\lVert\) 左范数定界符 \lVert  \(\rVert\) 右范数定界符 \rVert  \(P(\textrm{a} \mid \textrm{b})\) 条件概率 P(\textrm{a} \mid \textrm{b})  \(\mathbb{E}_{\textrm{x} \sim P} [f(x)]\) \(f(x)\) 关于 \(P(\textrm{x})\) 的期望   \(\partial\) 偏导数 \partial  \(\ast\) 星号 \ast  \(\nabla\) 梯度 \nabla     参考文献  </description>
+    </item>
+    
+  </channel>
+</rss>

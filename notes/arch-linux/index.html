@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arch Linux - 张凯的博客</title>
+  <link rel="stylesheet" href="https://kaizhang91.github.io/blog/css/bundle.css">
+  <link rel="icon" href="https://kaizhang91.github.io/blog/favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css">
+</head>
+<body class="mdc-typography"><aside class="mdc-drawer mdc-drawer--modal">
+  <div class="mdc-drawer__header">
+    <h3 class="mdc-drawer__title"><a href="https://kaizhang91.github.io/blog/">张凯的博客</a></h3>
+  </div>
+  <div class="mdc-drawer__content">
+    <div class="mdc-list">
+      <a class="mdc-list-item mdc-list-item--activated" href="https://kaizhang91.github.io/blog/posts" aria-selected="true">
+        <span class="mdc-list-item__text">文章</span>
+      </a>
+      <a class="mdc-list-item" href="https://kaizhang91.github.io/blog/notes">
+        <span class="mdc-list-item__text">笔记</span>
+      </a>
+      <a class="mdc-list-item" href="https://github.com/kaizhang91/blog">
+        <span class="mdc-list-item__text">源码</span>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<div class="mdc-drawer-scrim"></div>
+<div class="mdc-drawer-app-content"><header class="mdc-top-app-bar app-bar" id="app-bar">
+  <div class="mdc-top-app-bar__row">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+      <button class="material-icons mdc-top-app-bar__navigation-icon">menu</button>
+      <a href="https://kaizhang91.github.io/blog/" class="mdc-top-app-bar__title">张凯的博客</a>
+    </section>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+      <a href="https://kaizhang91.github.io/blog/posts" class="mdc-top-app-bar__action-item" aria-label="Posts" alt="Posts">文章</a>
+      <a href="https://kaizhang91.github.io/blog/notes" class="mdc-top-app-bar__action-item" aria-label="Notes" alt="Notes">笔记</a>
+      <a href="https://github.com/kaizhang91/blog" class="mdc-top-app-bar__action-item" aria-label="Source Code" alt="Source Code">源码</a>
+    </section>
+  </div>
+</header>
+<main class="main-content" id="main-content">
+<div class="mdc-top-app-bar--fixed-adjust">
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop"></div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+        <div class="mdc-card my-card">
+          <div class="my-card__primary">
+            <h2 class="my-card__title mdc-typograhpy--headline6">Arch Linux</h2>
+            <h3 class="my-card__subtitle mdc-typography--subtitle2">2018-10-28 16:05:48</h3>
+          </div>
+
+          <div class="my-card__secondary-single mdc-typography--body2">
+            <h1 id="安装">安装</h1>
+<h2 id="确认-boot-模式">确认 boot 模式</h2>
+<pre><code># ls /sys/firmware/efi/efivars</code></pre>
+<p>存在时为 UEFI 模式，不存在则为 BIOS 模式。</p>
+<h2 id="确认已联网">确认已联网</h2>
+<pre><code># ping archlinux.org</code></pre>
+<h2 id="更新系统时钟">更新系统时钟</h2>
+<pre><code># timedatectl set-ntp true</code></pre>
+<h2 id="分区">分区</h2>
+<h3 id="bios-boot-分区">BIOS boot 分区</h3>
+<blockquote>
+<p>在 BIOS/GPT 配置下才需要。</p>
+</blockquote>
+<pre><code># gdisk /dev/sda  # 选 GPT 分区表
+n
+回车（使用默认值）
++1M
+ef02
+w</code></pre>
+<h3 id="lvm-分区">LVM 分区</h3>
+<h4 id="创建分区">创建分区</h4>
+<pre><code># gdisk /dev/sda
+n
+回车（使用默认值）
+回车（使用默认值）
+8e00
+w</code></pre>
+<h4 id="创建-physical-volumes">创建 physical volumes</h4>
+<pre><code># lvmdiskscan
+# pvcreate /dev/sda2
+# pvdisplay</code></pre>
+<h4 id="创建-volume-group">创建 volume group</h4>
+<pre><code># vgcreate VolGroup00 /dev/sda2
+# vgdisplay</code></pre>
+<h4 id="创建-logical-volumes">创建 logical volumes</h4>
+<pre><code># lvcreate -L 30G VolGroup00 -n lvroot
+# lvcreate -L 20G VolGroup00 -n lvvar
+# lvcreate -l 100%FREE VolGroup00 -n lvhome
+# lvdisplay</code></pre>
+<h4 id="创建文件系统和挂载-logical-volumes">创建文件系统和挂载 logical volumes</h4>
+<pre><code>mkfs.ext4 /dev/VolGroup00/lvroot
+mkfs.ext4 /dev/VolGroup00/lvvar
+mkfs.ext4 /dev/VolGroup00/lvhome
+mkdir /mnt/var
+mkdir /mnt/home
+mkdir /mnt/hostrun
+mount /dev/VolGroup00/lvroot /mnt
+mount /dev/VolGroup00/lvvar /mnt/var
+mount /dev/VolGroup00/lvhome /mnt/home
+mount --bind /run /mnt/hostrun</code></pre>
+<h2 id="安装-base-packages">安装 base packages</h2>
+<pre><code># pacstrap /mnt base</code></pre>
+<h2 id="配置">配置</h2>
+<h3 id="fstab">Fstab</h3>
+<pre><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></pre>
+<h3 id="chroot">Chroot</h3>
+<p>Change root 到新系统：</p>
+<pre><code># arch-chroot /mnt
+# pacman -S vim</code></pre>
+<h3 id="时区">时区</h3>
+<pre><code># ln -sh /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# hwclock --systohc</code></pre>
+<h3 id="本地化">本地化</h3>
+<p>去掉 <code>/etc/locale.gen</code> 里 <code>en_US.UTF-8 UTF-8</code> 和 <code>zh_CN.UTF-8 UTF-8</code> 两行的注释符号，然后：</p>
+<pre><code># locale-gen
+# echo &quot;LANG=en_US.UTF-8&quot; &gt;&gt; /etc/locale.conf
+# echo &quot;hostname&quot; &gt;&gt; /etc/hostname
+# echo &quot;127.0.0.1 localhost&quot; &gt;&gt; /etc/hosts
+# echo &quot;::1       localhost&quot; &gt;&gt; /etc/hosts</code></pre>
+<h3 id="initramfs">Initramfs</h3>
+<pre><code>File: /etc/mkinitcpio.conf
+--------------------------------------------
+HOOKS=(base **udev** ... block **lvm2** filesystems)</code></pre>
+<pre><code># mkinitcpio -p linux</code></pre>
+<h3 id="根用户密码">根用户密码</h3>
+<pre><code># passwd</code></pre>
+<h3 id="boot-loader">Boot loader</h3>
+<pre><code># mkdir /run/lvm
+# mount --bind /hostrun/lvm /run/lvm
+# pacman -S grub
+# grub-install --target=i386-pc /dev/sda
+# vim /etc/default/grub  # 在 GRUB_PRELOAD_MODULES=&#39;...&#39; 里加入 lvm
+# grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
+<h2 id="退出">退出</h2>
+<pre><code># exit
+# umount -R /mnt
+# reboot</code></pre>
+<h1 id="基础">基础</h1>
+<h2 id="dns">DNS</h2>
+<pre><code># pacman -S fish git ntp sudo
+# systemctl enable dhcpcd
+# systemctl start dhcpcd
+# systemctl enable ntpd
+# systemctl start ntpd</code></pre>
+<h2 id="用户">用户</h2>
+<pre><code># useradd --create-home kai
+# passwd kai
+# gpasswd -a kai wheel
+# pacman -S fish vim
+# visudo  # 让 wheel 拥有 sudo 权限
+# chsh -s /usr/bin/fish kai</code></pre>
+<h2 id="virtual-box">Virtual Box</h2>
+<pre><code>sudo pacman -S virtualbox-guest-utils  # 选择 virtualbox-guest-modules-arch
+sudo gpasswd --add kai vboxsf
+sudo systemctl enable vboxservice
+sudo systemctl start vboxservice</code></pre>
+<p>如果不能全屏的话，可能是分辨率的问题，请添加以下文件：</p>
+<pre><code>File: /etc/X11/xorg.conf.d/10-monitor.conf
+-------------------------------------------
+Section &quot;Monitor&quot;
+  Identifier &quot;Virtual-1&quot;
+  Modeline &quot;1920x1080_60.00&quot;  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+  Option &quot;PreferredMode&quot; &quot;1920x1080_60.00&quot;
+EndSection</code></pre>
+<blockquote>
+<p>Modeline 那一行由 <code>cvt 1920 1080</code> 生成。</p>
+</blockquote>
+<h2 id="yay">yay</h2>
+<pre><code>mkdir ~/projects &amp;&amp; cd ~/projects
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si</code></pre>
+<h2 id="x11">X11</h2>
+<blockquote>
+<p>安装 <code>xorg-server</code> 时选默认的依赖。</p>
+</blockquote>
+<pre><code>sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
+sudo pacman -S adobe-source-code-pro-fonts
+sudo pacman -S alacritty base-devel bat clang dmenu
+sudo pacman -S fd feh firefox fzf gopass
+sudo pacman -S i3-gaps net-tools
+sudo pacman -S parcellite powerline-fonts ranger ripgrep
+sudo pacman -S tmux tmuxp transset-df tree
+sudo pacman -S ttf-dejavu ttf-font-awesome ttf-inconsolata ttf-roboto
+sudo pacman -S variety w3m wqy-microhei wqy-zenhei
+sudo pacman -S xclip xcompmgr xorg-server xorg-xinit xsel
+yay i3lock-next i3status-rust ttf-font-awesome-4</code></pre>
+<h2 id="dotfiles">dotfiles</h2>
+<pre><code>sudo pacman -S rustup
+rustup install beta
+rustup default beta
+
+mkdir ~/projects/my &amp;&amp; cd ~/projects/my
+git clone https://github.com/kaizhang91/dotfiles.git
+cd dotfiles/
+cargo build --release
+./target/release/dotfiles templates/</code></pre>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+<pre><code>sudo pacman -S code</code></pre>
+<h2 id="fish">fish</h2>
+<pre><code>yay fisher  # fish plugin manager
+fisher add jethrokuan/z
+fisher add jorgebucaran/fish-nvm</code></pre>
+<h2 id="输入法">输入法</h2>
+<pre><code>sudo pacman -S fcitx fcitx-cloudpinyin fcitx-googlepinyin
+sudo pacman -S fcitx-im  # 选择全部</code></pre>
+<h2 id="下载">下载</h2>
+<pre><code>sudo pacman -S uget
+yay uget-integrator uget-integrator-firefox</code></pre>
+<h2 id="翻译">翻译</h2>
+<pre><code>sudo pacman -S goldendict</code></pre>
+<h2 id="文档">文档</h2>
+<pre><code>sudo pacman -S zeal</code></pre>
+<h2 id="排版">排版</h2>
+<pre><code>sudo pacman -S graphviz
+sudo pacman -S pandoc pandoc-citeproc pandoc-crossref
+sudo pacman -S python-pandocfilters texlive-most
+sudo pacman -S texlive-lang</code></pre>
+<h3 id="字体">字体</h3>
+<pre><code>mkdir -p ~/.local/share/fonts
+cp -i ~/share/fonts/方正苏新诗柳楷简体.ttf ~/.local/share/fonts/
+cp -i ~/share/fonts/方正苏新诗柳楷繁体.ttf ~/.local/share/fonts/
+fc-list | grep -i kai</code></pre>
+<h2 id="其他">其他</h2>
+<pre><code>pacman -S bind-tools deepin-screenshot emacs
+pacman -S go htop hugo mplayer ncdu net-tools
+pacman -S openssh pavucontrol python stack
+pacman -S rxvt-unicode
+pacman -S tcpdump
+yay google-chrome</code></pre>
+<h1 id="编程语言">编程语言</h1>
+<h2 id="cc">c/c++</h2>
+<pre><code>sudo pacman -S cmake</code></pre>
+<h2 id="java">java</h2>
+<pre><code>sudo pacman -S maven</code></pre>
+<h2 id="lua">Lua</h2>
+<pre><code>sudo pacman -S luarocks</code></pre>
+<h2 id="python">Python</h2>
+<h3 id="jupyter">Jupyter</h3>
+<pre><code>sudo pacman -S jupyter-notebook
+sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension</code></pre>
+<h3 id="数据挖掘">数据挖掘</h3>
+<pre><code>sudo pacman -S python-matplotlib python-pandas</code></pre>
+<h2 id="rust">Rust</h2>
+<pre><code>sudo pacman -S rust-racer
+rustup component add clippy rls rustfmt rust-src</code></pre>
+<h2 id="前端">前端</h2>
+<pre><code>sudo pacman -S yarn
+yarn config set registry https://registry.npm.taobao.org --global</code></pre>
+<h1 id="归档">归档</h1>
+<h2 id="neovim">neovim</h2>
+<pre><code>sudo pacman -S neovim python-isort python-neovim python2-neovim
+sudo pacman -S vim-jedi yapf
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></pre>
+<h2 id="spacemacs">Spacemacs</h2>
+<h3 id="haskell">Haskell</h3>
+<pre><code>sudo pacman -S hlint stylish-haskell hasktags hoogle
+yay haskell-apply-refactor
+stack install intero</code></pre>
+<h2 id="spacevim">SpaceVim</h2>
+<pre><code>sudo pacman -S neovim python-neovim python2-neovim
+curl -sLf https://spacevim.org/install.sh | bash</code></pre>
+<h2 id="zsh">zsh</h2>
+<pre><code>sudo pacman -S z zsh
+git clone https://github.com/Tarrasch/antigen-hs.git ~/.zsh/antigen-hs/
+# 修改 stack.yaml 里的 resolver 版本
+zsh  # Yes, Yes ...
+# 更新 MyAntigen.hs 后，请 antigen-hs-setup</code></pre>
+<div id="refs" class="references">
+
+</div>
+
+          </div>
+
+          <div id="my-disqus"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kai-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop"></div>
+    </div>
+  </div>
+</div>
+
+    </main><script src="https://kaizhang91.github.io/blog/js/bundle.js" async></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ TeX: { Macros: { bm: ["\\boldsymbol{#1}", 1] } } });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</div>
+</body>
+
+</html>

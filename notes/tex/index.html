@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TeX - 张凯的博客</title>
+  <link rel="stylesheet" href="https://kaizhang91.github.io/blog/css/bundle.css">
+  <link rel="icon" href="https://kaizhang91.github.io/blog/favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css">
+</head>
+<body class="mdc-typography"><aside class="mdc-drawer mdc-drawer--modal">
+  <div class="mdc-drawer__header">
+    <h3 class="mdc-drawer__title"><a href="https://kaizhang91.github.io/blog/">张凯的博客</a></h3>
+  </div>
+  <div class="mdc-drawer__content">
+    <div class="mdc-list">
+      <a class="mdc-list-item mdc-list-item--activated" href="https://kaizhang91.github.io/blog/posts" aria-selected="true">
+        <span class="mdc-list-item__text">文章</span>
+      </a>
+      <a class="mdc-list-item" href="https://kaizhang91.github.io/blog/notes">
+        <span class="mdc-list-item__text">笔记</span>
+      </a>
+      <a class="mdc-list-item" href="https://github.com/kaizhang91/blog">
+        <span class="mdc-list-item__text">源码</span>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<div class="mdc-drawer-scrim"></div>
+<div class="mdc-drawer-app-content"><header class="mdc-top-app-bar app-bar" id="app-bar">
+  <div class="mdc-top-app-bar__row">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+      <button class="material-icons mdc-top-app-bar__navigation-icon">menu</button>
+      <a href="https://kaizhang91.github.io/blog/" class="mdc-top-app-bar__title">张凯的博客</a>
+    </section>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+      <a href="https://kaizhang91.github.io/blog/posts" class="mdc-top-app-bar__action-item" aria-label="Posts" alt="Posts">文章</a>
+      <a href="https://kaizhang91.github.io/blog/notes" class="mdc-top-app-bar__action-item" aria-label="Notes" alt="Notes">笔记</a>
+      <a href="https://github.com/kaizhang91/blog" class="mdc-top-app-bar__action-item" aria-label="Source Code" alt="Source Code">源码</a>
+    </section>
+  </div>
+</header>
+<main class="main-content" id="main-content">
+<div class="mdc-top-app-bar--fixed-adjust">
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop"></div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+        <div class="mdc-card my-card">
+          <div class="my-card__primary">
+            <h2 class="my-card__title mdc-typograhpy--headline6">TeX</h2>
+            <h3 class="my-card__subtitle mdc-typography--subtitle2">2018-10-28 16:04:32</h3>
+          </div>
+
+          <div class="my-card__secondary-single mdc-typography--body2">
+            <h1 id="数学">数学</h1>
+<div id="tbl:mathFonts">
+<table>
+<caption>表 1: 数学字体</caption>
+<thead>
+<tr class="header">
+<th align="left">数学符号</th>
+<th align="left">含义</th>
+<th align="left"><span class="math inline">\(\TeX\)</span> 表示</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(a\)</span></td>
+<td align="left">标量</td>
+<td align="left">a</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bm{a}\)</span></td>
+<td align="left">向量</td>
+<td align="left">\bm{a}</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bm{A}\)</span></td>
+<td align="left">矩阵</td>
+<td align="left">\bm{A}</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bm{A}^\mathsf{T}\)</span></td>
+<td align="left">矩阵转置</td>
+<td align="left">\bm{A}^\mathsf{T}</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\textrm{a}\)</span></td>
+<td align="left">随机变量</td>
+<td align="left">\textrm{a}</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mathbb{A}\)</span></td>
+<td align="left">集合</td>
+<td align="left">\mathbb{A}</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\mathbb{E}\)</span></td>
+<td align="left">期望</td>
+<td align="left">\mathbb{E}</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mathcal{N}\)</span></td>
+<td align="left">高斯分布</td>
+<td align="left">\mathcal{N}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl:binaryRelationSymbols">
+<table>
+<caption>表 2: 二元关系符</caption>
+<thead>
+<tr class="header">
+<th align="left">数学符号</th>
+<th align="left">含义</th>
+<th align="left"><span class="math inline">\(\TeX\)</span> 表示</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ge\)</span></td>
+<td align="left">大于等于</td>
+<td align="left">\ge</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\in\)</span></td>
+<td align="left">属于</td>
+<td align="left">\in</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\textrm{a} \sim P\)</span></td>
+<td align="left">随机变量 a 的概率分布为 P</td>
+<td align="left">\textrm{a} \sim P</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\times\)</span></td>
+<td align="left">乘</td>
+<td align="left">\times</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\frac{x}{y}\)</span></td>
+<td align="left">除</td>
+<td align="left">\frac{x}{y}</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\odot\)</span></td>
+<td align="left">矩阵按元素相乘</td>
+<td align="left">\odot</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl:bigOperators">
+<table>
+<caption>表 3: 巨算符</caption>
+<thead>
+<tr class="header">
+<th align="left">数学符号</th>
+<th align="left">含义</th>
+<th align="left"><span class="math inline">\(\TeX\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\prod\)</span></td>
+<td align="left">求积</td>
+<td align="left">\prod</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sum\)</span></td>
+<td align="left">求和</td>
+<td align="left">\sum</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl:arrows">
+<table>
+<caption>表 4: 箭头</caption>
+<thead>
+<tr class="header">
+<th align="left">数学符号</th>
+<th align="left">含义</th>
+<th align="left"><span class="math inline">\(\TeX\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\Rightarrow\)</span></td>
+<td align="left">推导出</td>
+<td align="left">\Rightarrow</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\to\)</span></td>
+<td align="left">向右箭头</td>
+<td align="left">\to</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl:greekLetters">
+<table>
+<caption>表 5: 希腊字母</caption>
+<thead>
+<tr class="header">
+<th align="left">字母</th>
+<th align="left"><span class="math inline">\(\TeX\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\alpha\)</span></td>
+<td align="left">\alpha</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\beta\)</span></td>
+<td align="left">\beta</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\kappa\)</span></td>
+<td align="left">\kappa</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mu\)</span></td>
+<td align="left">\mu</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\phi\)</span></td>
+<td align="left">\phi</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\pi\)</span></td>
+<td align="left">\pi</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sigma\)</span></td>
+<td align="left">\sigma</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Sigma\)</span></td>
+<td align="left">\Sigma</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\theta\)</span></td>
+<td align="left">\theta</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\zeta\)</span></td>
+<td align="left">\zeta</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl:functions">
+<table>
+<caption>表 6: 函数</caption>
+<thead>
+<tr class="header">
+<th align="left">函数</th>
+<th align="left"><span class="math inline">\(\TeX\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\arg\)</span></td>
+<td align="left">\arg</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\cos\)</span></td>
+<td align="left">\cos</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\det\)</span></td>
+<td align="left">\det</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\exp\)</span></td>
+<td align="left">\exp</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\log\)</span></td>
+<td align="left">\log</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\max\)</span></td>
+<td align="left">\max</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sqrt{x}\)</span></td>
+<td align="left">\sqrt{x}</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\tanh\)</span></td>
+<td align="left">\tanh</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl:otherSymbols">
+<table>
+<caption>表 7: 其他</caption>
+<thead>
+<tr class="header">
+<th align="left">数学符号</th>
+<th align="left">含义</th>
+<th align="left"><span class="math inline">\(\TeX\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\forall\)</span></td>
+<td align="left">任意</td>
+<td align="left">\forall</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\infty\)</span></td>
+<td align="left">无穷</td>
+<td align="left">\infty</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\left(\frac{x}{y}\right)\)</span></td>
+<td align="left">定界符</td>
+<td align="left">\left(\frac{x}{y}\right)</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\lVert\)</span></td>
+<td align="left">左范数定界符</td>
+<td align="left">\lVert</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\rVert\)</span></td>
+<td align="left">右范数定界符</td>
+<td align="left">\rVert</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(P(\textrm{a} \mid \textrm{b})\)</span></td>
+<td align="left">条件概率</td>
+<td align="left">P(\textrm{a} \mid \textrm{b})</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\mathbb{E}_{\textrm{x} \sim P} [f(x)]\)</span></td>
+<td align="left"><span class="math inline">\(f(x)\)</span> 关于 <span class="math inline">\(P(\textrm{x})\)</span> 的期望</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\partial\)</span></td>
+<td align="left">偏导数</td>
+<td align="left">\partial</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ast\)</span></td>
+<td align="left">星号</td>
+<td align="left">\ast</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\nabla\)</span></td>
+<td align="left">梯度</td>
+<td align="left">\nabla</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="参考文献" class="unnumbered">参考文献</h1>
+<div id="refs" class="references">
+
+</div>
+
+          </div>
+
+          <div id="my-disqus"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kai-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop"></div>
+    </div>
+  </div>
+</div>
+
+    </main><script src="https://kaizhang91.github.io/blog/js/bundle.js" async></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ TeX: { Macros: { bm: ["\\boldsymbol{#1}", 1] } } });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</div>
+</body>
+
+</html>
